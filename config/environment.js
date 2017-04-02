@@ -22,7 +22,7 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    googleFonts: [ 'Futura' ],
+    googleFonts: ['Montserrat:700'],
 
     contentSecurityPoicy: {
       'font-src': "'self' fonts.gstatic.com",

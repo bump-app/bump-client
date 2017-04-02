@@ -1,10 +1,16 @@
+$text: #949494;
+$dim: #6A6A6A;
 $dark-gray: #36393E;
+$darker-gray: #2E3136;
 $black: #262626;
 $logo: #80E4E7;
 
-body {
+html, body, .ember-view {
   margin: 0;
+  padding: 0;
+  height: 100%;
   background: $dark-gray;
+  font-family: 'Helvetica', sans-serif;
 }
 
 .navbar {
@@ -16,10 +22,33 @@ body {
   border-bottom: 2px solid $black;
   .logo {
     position: absolute;
-    margin-top: 1px;
+    margin-top: 3px;
     color: $logo;
-    font-family: "Futura";
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 48px;
+  }
+}
+
+.container {
+  height: 100%;
+}
+
+.channel-nav {
+  width: 192px;
+  height: 100%;
+  background: $darker-gray;
+  color: $text;
+  .channel-header {
+    padding: 24px 0 12px 24px;
+    font-size: 12px;
+  }
+  .channel-name {
+    padding: 0 0 8px 24px;
+    font-size: 18px;
+    .hash {
+      color: $dim;
+      font-weight: lighter;
+    }
   }
 }

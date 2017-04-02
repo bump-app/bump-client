@@ -1,0 +1,10 @@
+<div class="channel-nav">
+  <div class="channel-header">CHANNELS</div>
+  {{#each model as |channel|}}
+    <div class="channel-name">
+      <span class="hash">#</span>
+      <span>{{channel.name}}</span>
+    </div>
+  {{/each}}
+</div>
+{{outlet}}
