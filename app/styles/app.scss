@@ -1,0 +1,25 @@
+$dark-gray: #36393E;
+$black: #262626;
+$logo: #80E4E7;
+
+body {
+  margin: 0;
+  background: $dark-gray;
+}
+
+.navbar {
+  width: 100%;
+  line-height: 1.5;
+  height: 56px;
+  padding-left: 24px;
+  background: $dark-gray;
+  border-bottom: 2px solid $black;
+  .logo {
+    position: absolute;
+    margin-top: 1px;
+    color: $logo;
+    font-family: "Futura";
+    font-weight: bold;
+    font-size: 48px;
+  }
+}

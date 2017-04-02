@@ -20,6 +20,13 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    googleFonts: [ 'Futura' ],
+
+    contentSecurityPoicy: {
+      'font-src': "'self' fonts.gstatic.com",
+      'style-src': "'self' fonts.googleapis.com"
     }
   };
 
