@@ -1,7 +1,15 @@
 <nav class="navbar">
-  <div class="logo">
-    bump
-  </div>
+  {{#link-to "channels"}}
+    <div class="logo">
+      bump
+    </div>
+  {{/link-to}}
+
+  {{#if session.isAuthenticated}}
+    <button {{action "signout"}}>Sign Out</button>
+  {{else}}
+    {{#link-to "signin" class="signin-link"}}Sign In{{/link-to}}
+  {{/if}}
 </nav>
 <div class="container">
   {{outlet}}
