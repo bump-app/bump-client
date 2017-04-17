@@ -1,2 +1,4 @@
-{{model.name}}
+{{#with model as |user|}}
+  {{user.name}}
+{{/with}}
 {{outlet}}
