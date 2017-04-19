@@ -7,12 +7,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('channels', { path: '/' }, function() {
-    this.route('all', { path: '' });
+  this.route('channels', function() {
+    this.route('all');
     this.route('show', { path: '/:name' });
   });
   this.route('signin');
   this.route('users', { path: '/users/:name' });
+  this.route('404', { path: '*' });
 });
 
 export default Router;
