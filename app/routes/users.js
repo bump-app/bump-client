@@ -1,10 +1,10 @@
-import Ember from 'ember';
+import Route from 'ember-route';
 import get from 'ember-metal/get';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(params) {
-    let { name } = params;
-    return this.get('store')
+    const { name } = params;
+    return get(this, 'store')
       .query('user', { filter: { name } })
       .then(records => get(records, 'firstObject'));
   }

@@ -5,12 +5,12 @@
     </div>
   {{/link-to}}
 
-  {{#if session.isAuthenticated}}
+{{!--   {{#if session.isAuthenticated}}
     <button {{action "signout"}}>Sign Out</button>
   {{else}}
     {{#link-to "signin" class="signin-link"}}Sign In{{/link-to}}
-  {{/if}}
+  {{/if}} --}}
 </nav>
-<div class="container">
+<div class="app-container">
   {{outlet}}
 </div>

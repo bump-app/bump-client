@@ -1,15 +1,24 @@
+$bright: #E1E1E1;
 $text: #949494;
 $dim: #6A6A6A;
-$dark-gray: #36393E;
-$darker-gray: #2E3136;
+$dark-gray: #42464C;
+$darker-gray: #36393E;
+$darkest-gray: #2E3136;
 $black: #262626;
 $logo: #80E4E7;
 
-html, body, .ember-view {
+$navbar-height: 56px;
+$sidebar-width: 222px;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, body > [class="ember-view"] {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: $dark-gray;
+  background: $darker-gray;
   font-family: 'Helvetica', sans-serif;
 }
 
@@ -21,9 +30,9 @@ a {
 .navbar {
   width: 100%;
   line-height: 1.5;
-  height: 56px;
+  height: $navbar-height;
   padding-left: 24px;
-  background: $dark-gray;
+  background: $darker-gray;
   border-bottom: 2px solid $black;
   .logo {
     position: absolute;
@@ -38,14 +47,19 @@ a {
   }
 }
 
-.container {
+.app-container {
+  display: flex;
+  height: calc(100% - #{$navbar-height});
+}
+
+.app-column {
   height: 100%;
 }
 
 .channel-nav {
-  width: 192px;
+  width: $sidebar-width;
   height: 100%;
-  background: $darker-gray;
+  background: $darkest-gray;
   color: $text;
   .channel-header {
     padding: 24px 0 12px 24px;
@@ -60,4 +74,39 @@ a {
       font-weight: lighter;
     }
   }
+  .active {
+    color: $bright;
+    .hash {
+      color: $text;
+    }
+  }
+}
+
+.post-list {
+  width: calc(100% - #{$sidebar-width});
+}
+
+.post-view {
+  max-width: 512px;
+  margin: 16px auto;
+  padding: 8px;
+  border-radius: 8px;
+  background: $dark-gray;
+  .post-user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    .post-user-avatar {
+      width: 36px;
+      padding-right: 8px;
+    }
+    .post-user-name {
+      color: $bright;
+    }
+  }
+}
+
+.friends-list {
+  width: $sidebar-width;
+  background: $darkest-gray;
 }

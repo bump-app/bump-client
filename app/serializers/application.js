@@ -1,7 +1,7 @@
-import DS from 'ember-data';
+import JSONAPISerializer from 'ember-data/serializers/json-api';
 import { camelize } from 'ember-string';
 
-export default DS.JSONAPISerializer.extend({
+export default JSONAPISerializer.extend({
   keyForAttribute(key) {
     return camelize(key);
   },

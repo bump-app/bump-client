@@ -1,9 +1,4 @@
-import Ember from 'ember';
+import Route from 'ember-route';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
-export default Ember.Route.extend(ApplicationRouteMixin);
-// {
-  // model() {
-  //   return this.get('store').findAll('channel');
-  // }
-// }
+export default Route.extend(ApplicationRouteMixin);
