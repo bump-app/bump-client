@@ -5,7 +5,7 @@ $dark-gray: #42464C;
 $darker-gray: #36393E;
 $darkest-gray: #2E3136;
 $black: #262626;
-$logo: #80E4E7;
+$accent: #80E4E7;
 
 $navbar-height: 56px;
 $sidebar-width: 222px;
@@ -20,10 +20,11 @@ html, body, body > [class="ember-view"] {
   height: 100%;
   background: $darker-gray;
   font-family: 'Helvetica', sans-serif;
+  color: $text;
 }
 
 a {
-  color: inherit;
+  color: $accent;
   text-decoration: none;
 }
 
@@ -37,7 +38,7 @@ a {
   .logo {
     position: absolute;
     margin-top: 3px;
-    color: $logo;
+    color: $accent;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 48px;
@@ -60,7 +61,6 @@ a {
   width: $sidebar-width;
   height: 100%;
   background: $darkest-gray;
-  color: $text;
   .channel-header {
     padding: 24px 0 12px 24px;
     font-size: 12px;
@@ -69,13 +69,18 @@ a {
     display: block;
     padding: 0 0 8px 24px;
     font-size: 18px;
+    a {
+      color: $text;
+    }
     .hash {
       color: $dim;
       font-weight: lighter;
     }
   }
   .active {
-    color: $bright;
+    a {
+      color: $bright;
+    }
     .hash {
       color: $text;
     }
