@@ -94,19 +94,30 @@ a {
 .post-view {
   max-width: 512px;
   margin: 16px auto;
-  padding: 8px;
+  padding: 16px;
   border-radius: 8px;
   background: $dark-gray;
+  .post-subject {
+    margin-bottom: 16px;
+  }
   .post-user {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     .post-user-avatar {
-      width: 36px;
-      padding-right: 8px;
+      width: 48px;
+      margin-right: 16px;
+      border-radius: 999em;
     }
-    .post-user-name {
-      color: $bright;
+    .post-user-info {
+      .post-user-name {
+        margin-bottom: 4px;
+        font-size: 18px;
+        color: $bright;
+      }
+      .timestamp {
+        font-size: 14px;
+      }
     }
   }
 }
