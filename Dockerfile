@@ -1,4 +1,5 @@
 FROM node:6.9
+MAINTAINER bump-app <https://github.com/bump-app>
 
 # RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.20.0
 # ENV PATH="/root/.yarn/bin:${PATH}"
