@@ -1,0 +1,18 @@
+{{#if (not expanded)}}
+  <div class="post-compose-header" onclick={{action "expand"}}>
+    share something...
+  </div>
+{{else}}
+  {{input
+    class="post-compose-link"
+    placeholder="url"
+    value=link}}
+  {{textarea
+    class="post-compose-text"
+    placeholder="caption..."
+    value=text
+    autoresize=true
+    rows=2
+    max-rows=15}}
+  <button type="button" onclick={{action "create"}}>post</button>
+{{/if}}
