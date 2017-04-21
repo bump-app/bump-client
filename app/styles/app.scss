@@ -85,6 +85,7 @@ a {
 
 .center {
   width: calc(100% - #{$sidebar-width});
+  overflow-y: scroll;
 }
 
 .post-compose {

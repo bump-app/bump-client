@@ -5,6 +5,8 @@ import { belongsTo } from 'ember-data/relationships';
 export default Model.extend({
   link: attr('string'),
   text: attr('string'),
+  createdAt: attr('utc'),
+  updatedAt: attr('utc'),
   user: belongsTo('user'),
   channel: belongsTo('channel'),
 });

@@ -12,6 +12,12 @@ export default Component.extend({
 
   expanded: false,
 
+  reset() {
+    set(this, 'link', null);
+    set(this, 'text', null);
+    set(this, 'expanded', false);
+  },
+
   actions: {
     expand() {
       set(this, 'expanded', true);
@@ -27,7 +33,9 @@ export default Component.extend({
       const user = await store.findRecord('user', 1);
       const channel = await store.findRecord('channel', 1);
       setProperties(post, { user, channel });
-      post.save();
+      await post.save();
+      get(this, 'model.content').insertAt(0, post._internalModel);
+      this.reset();
     }
   }
 })

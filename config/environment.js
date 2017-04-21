@@ -27,7 +27,12 @@ module.exports = function(environment) {
     contentSecurityPoicy: {
       'font-src': "'self' fonts.gstatic.com",
       'style-src': "'self' fonts.googleapis.com"
-    }
+    },
+
+    moment: {
+      allowEmpty: true,
+      includeTimezone: '2010-2020'
+    },
   };
 
   if (environment === 'development') {

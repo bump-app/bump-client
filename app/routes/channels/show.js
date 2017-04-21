@@ -7,16 +7,28 @@ export default Route.extend({
     const { name } = params;
     const channelController = this.controllerFor('channels');
     set(channelController, 'currentChannel', name);
-    return get(this, 'store')
-      .query('channel', {
+    const store = get(this, 'store');
+    return store.query('channel', {
+      filter: `[${JSON.stringify({
+        name: 'name',
+        op: 'eq',
+        val: name
+      })}]`
+    })
+    .then(records => get(records, 'firstObject'))
+    .then((channel) => {
+      return store.query('post', {
         filter: `[${JSON.stringify({
-          name: 'name',
-          op: 'eq',
-          val: name
+          name: 'channel',
+          op: 'has',
+          val: {
+            name: 'id',
+            op: 'eq',
+            val: get(channel, 'id')
+          }
         })}]`,
-        include: 'posts'
-      })
-      .then(records => get(records, 'firstObject'))
-      .then(channel => get(channel, 'posts'));
+        sort: '-created_at'
+      });
+    });
   },
 });
