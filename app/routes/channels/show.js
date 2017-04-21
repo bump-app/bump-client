@@ -6,7 +6,7 @@ export default Route.extend({
   model(params) {
     const { name } = params;
     const channelController = this.controllerFor('channels');
-    set(channelController, 'currentChannel', name);
+    set(channelController, 'channelName', name);
     const store = get(this, 'store');
     return store.query('channel', {
       filter: `[${JSON.stringify({
@@ -17,6 +17,9 @@ export default Route.extend({
     })
     .then(records => get(records, 'firstObject'))
     .then((channel) => {
+      const id = get(channel, 'id');
+      const showController = this.controllerFor('channels.show');
+      set(showController, 'channelId', id);
       return store.query('post', {
         filter: `[${JSON.stringify({
           name: 'channel',
@@ -24,7 +27,7 @@ export default Route.extend({
           val: {
             name: 'id',
             op: 'eq',
-            val: get(channel, 'id')
+            val: id
           }
         })}]`,
         sort: '-created_at'

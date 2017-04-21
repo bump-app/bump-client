@@ -31,7 +31,8 @@ export default Component.extend({
       const { link, text } = getProperties(this, 'link', 'text');
       const post = store.createRecord('post', { link, text });
       const user = await store.findRecord('user', 1);
-      const channel = await store.findRecord('channel', 1);
+      const channelId = get(this, 'channelId');
+      const channel = await store.findRecord('channel', channelId);
       setProperties(post, { user, channel });
       await post.save();
       get(this, 'model.content').insertAt(0, post._internalModel);
