@@ -3,6 +3,7 @@ import get, { getProperties } from 'ember-metal/get';
 import set, { setProperties } from 'ember-metal/set';
 import service from 'ember-service/inject';
 import { next } from 'ember-runloop';
+import { isEmpty } from 'ember-utils';
 import $ from 'jquery';
 
 export default Component.extend({
@@ -24,6 +25,12 @@ export default Component.extend({
       next(() => {
         $('.post-compose-link').focus();
       });
+    },
+
+    collapse() {
+      if (isEmpty(get(this, 'link')) && isEmpty(get(this, 'text'))) {
+        set(this, 'expanded', false);
+      }
     },
 
     async create() {
