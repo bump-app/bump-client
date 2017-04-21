@@ -1,6 +1,6 @@
 <div class="channel-nav">
   <div class="channel-header">CHANNELS</div>
-  <div class="channel-name {{if (eq currentChannel "all") "active"}}">
+  <div class="channel-name {{if (eq channelName "all") "active"}}">
     <a href={{href-to "channels.all"}}>
       <span class="hash">#</span>
       <span>all</span>
@@ -9,7 +9,7 @@
   {{#each model as |channel|}}
     {{channels/channel-name
       channel=channel
-      active=(eq currentChannel channel.name)}}
+      active=(eq channelName channel.name)}}
   {{/each}}
 </div>
 {{outlet}}
