@@ -136,6 +136,7 @@ a {
   }
   button:disabled {
     background: $text;
+    color: $dim;
     cursor: default;
   }
 }
