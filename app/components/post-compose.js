@@ -1,6 +1,7 @@
 import Component from 'ember-component';
 import get, { getProperties } from 'ember-metal/get';
 import set, { setProperties } from 'ember-metal/set';
+import computed from 'ember-computed';
 import service from 'ember-service/inject';
 import { next } from 'ember-runloop';
 import { isEmpty } from 'ember-utils';
@@ -12,6 +13,10 @@ export default Component.extend({
   classNames: ['post-compose'],
 
   expanded: false,
+
+  editing: computed('link', 'text', function() {
+    return (!isEmpty(get(this, 'link'))) || (!isEmpty(get(this, 'text')));
+  }).readOnly(),
 
   reset() {
     set(this, 'link', null);
@@ -28,7 +33,7 @@ export default Component.extend({
     },
 
     collapse() {
-      if (isEmpty(get(this, 'link')) && isEmpty(get(this, 'text'))) {
+      if (!get(this, 'editing')) {
         set(this, 'expanded', false);
       }
     },

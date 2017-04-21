@@ -17,6 +17,6 @@
       autoresize=true
       rows=2
       max-rows=15}}
-    <button type="button" onclick={{action "create"}}>post</button>
+    <button type="button" disabled={{not editing}} onclick={{action "create"}}>post</button>
   {{/click-outside}}
 {{/if}}
