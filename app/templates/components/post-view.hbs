@@ -11,4 +11,6 @@
     {{moment-from-now post.createdAt interval=1000 class="timestamp"}}
   </div>
 </div>
-{{post.text}}
+{{#if post.text}}
+  <div class="post-text">{{post.text}}</div>
+{{/if}}

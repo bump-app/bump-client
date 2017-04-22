@@ -147,13 +147,10 @@ a {
   padding: 16px;
   border-radius: 8px;
   background: $dark-gray;
-  .post-subject {
-    margin-bottom: 16px;
-  }
   .post-user {
     display: flex;
     align-items: center;
-    margin-bottom: 16px;
+    margin-top: 16px;
     .post-user-avatar {
       width: 48px;
       margin-right: 16px;
@@ -169,6 +166,9 @@ a {
         font-size: 14px;
       }
     }
+  }
+  .post-text {
+    margin-top: 16px;
   }
 }
 
