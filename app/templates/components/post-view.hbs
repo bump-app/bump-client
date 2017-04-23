@@ -1,8 +1,9 @@
 <div class="post-subject">
-  {{#unless post.linkFormatted}}
+  {{#if post.linkFormatted}}
+    {{html-safe post.linkFormatted}}
+  {{else}}
     <a href={{post.link}}>{{post.link}}</a>
-  {{/unless}}
-  {{html-safe post.linkFormatted}}
+  {{/if}}
 </div>
 <div class="post-user">
   <img class="post-user-avatar" src="https://media.kitsu.io/users/avatars/78332/small.jpg" />

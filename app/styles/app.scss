@@ -147,6 +147,11 @@ a {
   padding: 16px;
   border-radius: 8px;
   background: $dark-gray;
+  .post-subject {
+    iframe {
+      width: 100%;
+    }
+  }
   .post-user {
     display: flex;
     align-items: center;
