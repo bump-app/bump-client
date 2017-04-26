@@ -4,12 +4,15 @@
       bump
     </div>
   {{/link-to}}
-
-{{!--   {{#if session.isAuthenticated}}
-    <button {{action "signout"}}>Sign Out</button>
+  {{#if session.isAuthenticated}}
+    <button {{action 'logout'}} class="signin-link">Logout</button>
   {{else}}
-    {{#link-to "signin" class="signin-link"}}Sign In{{/link-to}}
-  {{/if}} --}}
+    {{#link-to "signin"}}
+      <div class="signin-link">
+        login
+      </div>
+    {{/link-to}}
+  {{/if}}
 </nav>
 <div class="app-container">
   {{outlet}}
