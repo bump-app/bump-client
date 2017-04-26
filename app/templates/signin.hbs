@@ -1,12 +1,11 @@
-<hr>
-<hr>
-<hr>
-<form {{action "authenticate" on="submit"}}>
-  {{input value=username placeholder="username" class="form-control"}}
-  {{input value=password placeholder="password" class="form-control" type="password"}}
+<div class="signin">
+    <form {{action "authenticate" on="submit"}}>
+      {{input value=username placeholder="username" class="form-control"}}
+      {{input value=password placeholder="password" class="form-control" type="password"}}
 
-  <button type="submit">Sign In</button>
-</form>
+      <button type="submit">Sign In</button>
+    </form>
+</div>
 
 {{#if errorMessage}}
   {{errorMessage}}
