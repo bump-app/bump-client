@@ -1,9 +1,19 @@
 <div class="signin">
     <form {{action "authenticate" on="submit"}}>
-      {{input value=username placeholder="username" class="form-control"}}
-      {{input value=password placeholder="password" class="form-control" type="password"}}
+      {{validated-input 
+        model=this 
+        valuePath='email' 
+        placeholder="email" 
+        class="form-control"}}
 
-      <button type="submit">Sign In</button>
+      {{validated-input 
+        model=this 
+        valuePath='password' 
+        placeholder="password" 
+        class="form-control" 
+        type="password"}}
+
+      <button type="submit" disabled={{v-get this 'isInvalid'}}>Sign In</button>
     </form>
 </div>
 

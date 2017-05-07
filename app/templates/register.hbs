@@ -1,0 +1,68 @@
+<div class="signin">
+    <form {{action "register" on="submit"}}>
+      {{input 
+        value=(mut model.first_name )
+        placeholder="First name" 
+        class="form-control"
+        focus-out=(action (mut showFirstnameError) true)}}
+        <br>
+        {{#if showFirstnameError}}
+            <div class="error">
+                {{v-get model 'first_name' 'message'}}
+            </div>
+        {{/if}}
+      {{input 
+        value=model.last_name 
+        placeholder="Last name" 
+        class="form-control"
+        focus-out=(action (mut showLastnameError) true)}}
+        <br>
+        {{#if showLastnameError}}
+            <div class="error">
+                {{v-get model 'last_name' 'message'}}
+            </div>
+        {{/if}}
+      {{input 
+        value=model.email 
+        placeholder="Email" 
+        class="form-control"
+        focus-out=(action (mut showEmailError) true)}}
+        <br>
+        {{#if showEmailError}}
+            <div class="error">
+                {{v-get model 'email' 'message'}}
+            </div>
+        {{/if}}
+      {{input 
+        value=model.password 
+        placeholder="Password" 
+        class="form-control" 
+        type="password"
+        focus-out=(action (mut showPasswordError) true)}}
+        <br>
+        {{#if showPasswordError}}
+            <div class="error">
+                {{v-get model 'password' 'message'}}
+            </div>
+        {{/if}}
+      {{input 
+        value=model.confirm_password 
+        placeholder="Confirm password" 
+        class="form-control" 
+        type="password"
+        focus-out=(action (mut showConfirmpasswordError) true)}}
+        <br>
+        {{#if showConfirmpasswordError}}
+            {{#if (v-get model 'confirm_password' 'isInvalid')}}
+                <div class="error">
+                    {{v-get model 'confirm_password' 'message'}}
+                </div>
+            {{/if}}
+        {{/if}}
+      <button type="submit" disabled={{v-get model 'isInvalid'}}>Register</button>
+    </form>
+</div>
+
+{{#if errorMessage}}
+  {{errorMessage}}
+{{/if}}
