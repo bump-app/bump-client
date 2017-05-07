@@ -25,4 +25,4 @@ export default Controller.extend(Validations, {
         .catch(reason => set(this, 'errorMessage', 'Wrong email or password'));
     }
   }
-})
+});
