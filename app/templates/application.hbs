@@ -5,20 +5,19 @@
     </div>
   {{/link-to}}
   {{#if session.isAuthenticated}}
-    <button {{action 'logout'}} class="signin-link">Logout</button>
+    <a href="#" class="signin-link" {{action 'logout'}}>
+      logout
+    </a>
   {{else}}
-    {{#link-to "signin"}}
-      <div class="signin-link">
-        login
-      </div>
-    {{/link-to}}
-    {{#link-to "register"}}
-      <div class="signin-link">
-        register
-      </div>
-    {{/link-to}}
+    <a href={{href-to "register"}} class="signin-link">
+      register
+    </a>
+    <a href="#" class="signin-link" {{action (mut authModalOpened) true}}>
+      login
+    </a>
   {{/if}}
 </nav>
 <div class="app-container">
   {{outlet}}
 </div>
+{{from-elsewhere name="modal"}}
