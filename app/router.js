@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('all');
     this.route('show', { path: '/:name' });
   });
+  this.route('register');
   this.route('signin');
   this.route('users', { path: '/users/:name' });
   this.route('404', { path: '*' });
