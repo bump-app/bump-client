@@ -12,7 +12,9 @@
     <a href={{href-to "register"}} class="signin-link">
       register
     </a>
-    <a href="#" class="signin-link" {{action (mut authModalOpened) true}}>
+    {{!-- <a href="#" class="signin-link" {{action (mut
+    authModalOpened) true}}> --}}
+    <a href={{href-to "signin"}} class="signin-link">
       login
     </a>
   {{/if}}

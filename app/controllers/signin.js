@@ -4,6 +4,7 @@ import get, { getProperties } from 'ember-metal/get';
 import set from 'ember-metal/set';
 import { buildValidations, validator } from 'ember-cp-validations';
 
+
 const Validations = buildValidations({
     email: [
         validator('presence', true),
@@ -18,11 +19,12 @@ export default Controller.extend(Validations, {
   session: service(),
 
   actions: {
+    // FIXME scope for the request is hardcoded in
     authenticate() {
       const { email, password } = getProperties(this, 'email', 'password');
       get(this, 'session')
-        .authenticate('authenticator:oauth2', email, password)
-        .catch(reason => set(this, 'errorMessage', 'Wrong email or password'));
+          .authenticate('authenticator:oauth2', email, password, 'email')
+          .catch(reason => set(this, 'errorMessage', 'Wrong email or password'));
     }
   }
 });
