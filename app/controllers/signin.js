@@ -17,6 +17,7 @@ const Validations = buildValidations({
 
 export default Controller.extend(Validations, {
   session: service(),
+  currentUser: service(),
 
   actions: {
     // FIXME scope for the request is hardcoded in
@@ -24,6 +25,7 @@ export default Controller.extend(Validations, {
       const { email, password } = getProperties(this, 'email', 'password');
       get(this, 'session')
           .authenticate('authenticator:oauth2', email, password, 'email')
+          .then(() => get(this, 'currentUser').load(email))
           .catch(reason => set(this, 'errorMessage', 'Wrong email or password'));
     }
   }
