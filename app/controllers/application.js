@@ -8,6 +8,8 @@ export default Controller.extend({
   actions: {
     logout() {
       get(this, 'session').invalidate();
+      //FIXME
+      localStorage.removeItem('userid');
     }
   }
 });

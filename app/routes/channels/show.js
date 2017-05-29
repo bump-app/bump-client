@@ -30,6 +30,7 @@ export default Route.extend({
             val: id
           }
         })}]`,
+        include: 'user',
         sort: '-created_at'
       });
     });
