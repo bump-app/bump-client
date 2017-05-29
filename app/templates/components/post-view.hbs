@@ -8,7 +8,7 @@
 <div class="post-user">
   <img class="post-user-avatar" src="https://media.kitsu.io/users/avatars/78332/small.jpg" />
   <div class="post-user-info">
-    <div class="post-user-name">matthewdias</div>
+    <div class="post-user-name">{{post.user.first_name}} {{post.user.last_name}}</div>
     {{moment-from-now post.createdAt interval=60000 class="timestamp"}}
   </div>
 </div>

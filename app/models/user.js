@@ -39,6 +39,6 @@ export default Model.extend(Validations, {
   last_name: attr('string'),
   email: attr('string'),
   password: attr('string'),
-  /*confirm_password: attr('string'),*/
   posts: hasMany('post'),
+  subscriptions: hasMany('subscription')
 });
