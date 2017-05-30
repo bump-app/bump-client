@@ -6,9 +6,8 @@ export default Route.extend({
     currentUser: service(),
     model() {
         const store = get(this, 'store');
-        return get(this, 'currentUser').getUser()
+        return get(this, 'currentUser').getuser()
             .then(user => {
-                console.log(user.email);
                 const subscribed = get(user, 'subscriptions')
                     .map(sub => sub.get('channel.name'));
                 return store.query('channel', {

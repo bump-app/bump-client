@@ -9,11 +9,12 @@ export default Ember.Component.extend({
     currentUser: service(),
     actions: {
         subscribe(channel) {
-            const user = get(this, 'currentUser.user');
-            const store = get(this, 'store');
-            const subscription = store.createRecord('subscription', { user, channel });
-            subscription.save();
-            /*this.transitionToRoute('discover');*/
+            get(this, 'currentUser').getuser().then(user => {
+                const store = get(this, 'store');
+                const subscription = store.createRecord('subscription', { user, channel });
+                subscription.save();
+                /*this.transitionToRoute('discover');*/
+            });
 
         }
     }
