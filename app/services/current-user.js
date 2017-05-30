@@ -31,7 +31,8 @@ export default Ember.Service.extend({
         }
     },
 
-    async getUser() {
+    async getuser() {
+
         var user = get(this, 'user');
         if(user) {
             return user;

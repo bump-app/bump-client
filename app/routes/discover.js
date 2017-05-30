@@ -7,7 +7,7 @@ export default Route.extend({
     currentUser: service(),
     model() {
         const store = get(this, 'store');
-        return get(this, 'currentUser').getUser()
+        return get(this, 'currentUser').getuser()
             .then(user => {
                 const subscribed = get(user, 'subscriptions').map(sub => sub.get('channel.name'));
                 // only find channels the user is not subscribed to
