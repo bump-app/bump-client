@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('users', { path: '/users/:name' });
   this.route('404', { path: '*' });
   this.route('discover');
+  this.route('create');
 });
 
 export default Router;
