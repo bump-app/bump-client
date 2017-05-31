@@ -3,10 +3,9 @@ import config from '../config/environment';
 
 export default OAuth2PasswordGrantAuthenticator.extend({
   serverTokenEndpoint: '/api/oauth/token',
-  /*serverTokenRevocationEndpoint: '/api/oauth/revoke',*/
-  makeRequest: function(url, data) {
-      data.client_id = config.client_id;
-      /*data.client_secret = 'notverysecret';*/
-      return this._super(url, data)
+
+  makeRequest(url, data) {
+    data.client_id = config.client_id;
+    return this._super(url, data)
   }
 });
