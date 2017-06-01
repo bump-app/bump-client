@@ -8,11 +8,9 @@ import { isEmpty } from 'ember-utils';
 import $ from 'jquery';
 
 export default Component.extend({
-  store: service(),
-
   classNames: ['post-compose'],
-
   expanded: false,
+  store: service(),
 
   editing: computed('link', 'text', function() {
     return (!isEmpty(get(this, 'link'))) || (!isEmpty(get(this, 'text')));
@@ -38,17 +36,17 @@ export default Component.extend({
       }
     },
 
-    async create() {
+    create() {
       const store = get(this, 'store');
       const { link, text } = getProperties(this, 'link', 'text');
       const post = store.createRecord('post', { link, text });
-      const user = await store.findRecord('user', 1);
-      const channelId = get(this, 'channelId');
-      const channel = await store.findRecord('channel', channelId);
+      const user = get(this, 'session.account');
+      const channel = get(this, 'channel');
       setProperties(post, { user, channel });
-      await post.save();
-      get(this, 'model.content').insertAt(0, post._internalModel);
-      this.reset();
+      post.save().then(() => {
+        get(this, 'model.content').insertAt(0, post._internalModel);
+        this.reset();
+      });
     }
   }
 })

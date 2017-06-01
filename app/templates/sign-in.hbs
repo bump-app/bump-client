@@ -1,0 +1,24 @@
+<div class="signin">
+  <form {{action "authenticate" on="submit"}}>
+    {{validated-input
+      model=this
+      valuePath='email'
+      placeholder="email"
+      class="form-control"
+    }}
+
+    {{validated-input
+      model=this
+      valuePath='password'
+      placeholder="password"
+      class="form-control"
+      type="password"
+    }}
+
+      <button type="submit" disabled={{v-get this 'isInvalid'}}>Sign In</button>
+    </form>
+  </div>
+
+  {{#if errorMessage}}
+    {{errorMessage}}
+  {{/if}}

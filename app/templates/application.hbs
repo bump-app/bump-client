@@ -1,5 +1,5 @@
 <nav class="navbar">
-  {{#link-to "channels"}}
+  {{#link-to "dashboard"}}
     <div class="logo">
       bump
     </div>
@@ -8,17 +8,14 @@
     <a href="#" class="signin-link" {{action 'logout'}}>
       logout
     </a>
-    <a href={{href-to "discover"}} class="signin-link">
-      discover
-    </a>
   {{else}}
-    <a href={{href-to "register"}} class="signin-link">
-      register
+    <a href={{href-to "sign-up"}} class="signin-link">
+      sign up
     </a>
     {{!-- <a href="#" class="signin-link" {{action (mut
     authModalOpened) true}}> --}}
-    <a href={{href-to "signin"}} class="signin-link">
-      login
+    <a href={{href-to "sign-in"}} class="signin-link">
+      sign in
     </a>
   {{/if}}
 </nav>

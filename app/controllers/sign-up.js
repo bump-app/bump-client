@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
         .then(({ validations }) => {
           if (validations.get('isValid')) {
             user.save();
-            this.transitionToRoute('index')
+            // this.transitionToRoute('index')
           }
         });
     }
