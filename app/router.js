@@ -16,8 +16,9 @@ Router.map(function() {
     this.route('show', { path: '/:name' });
   });
 
-  this.route('channels');
-  this.route('create');
+  this.route('channels', function() {
+    this.route('new');
+  });
 
   this.route('users', { path: '/users/:name' });
 
