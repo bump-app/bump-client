@@ -6,16 +6,15 @@ export default Ember.Component.extend({
   classNames: ['channel-entry'],
   attributeBindings: ['channel'],
   store: service(),
-  currentUser: service(),
+  router: service('-routing'),
 
   actions: {
     subscribe(channel) {
-      get(this, 'currentUser').getuser().then(user => {
-        const store = get(this, 'store');
-        const subscription = store.createRecord('subscription', { user, channel });
-        subscription.save();
-        /*this.transitionToRoute('discover');*/
-      });
+      const user = get(this, 'session.account')
+      const store = get(this, 'store');
+      const subscription = store.createRecord('subscription', { user, channel });
+      subscription.save();
+      get(this, 'router').transitionToRoute('dashboard.all', channel);
     }
   }
 });

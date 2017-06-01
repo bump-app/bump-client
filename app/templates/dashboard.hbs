@@ -1,0 +1,17 @@
+<div class="channel-nav">
+  <div class="channel-header">CHANNELS</div>
+  <div class="channel-name {{if (eq channelName "all") "active"}}">
+    <a href={{href-to "dashboard.all"}}>
+      <span class="hash">#</span>
+      <span>all</span>
+    </a>
+  </div>
+  {{#each model as |subscription|}}
+    {{channels/channel-name
+      channel=subscription.channel
+      active=(eq channelName subscription.channel.name)}}
+  {{/each}}
+</div>
+{{outlet}}
+<div class="friends-list">
+</div>
