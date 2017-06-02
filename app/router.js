@@ -20,8 +20,7 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('users', { path: '/users/:name' });
-
+  this.route('users', { path: '/users/:id' });
   this.route('404', { path: '*' });
 });
 

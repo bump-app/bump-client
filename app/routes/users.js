@@ -3,14 +3,15 @@ import get from 'ember-metal/get';
 
 export default Route.extend({
   model(params) {
-    const { name } = params;
+    const { id } = params;
     return get(this, 'store')
       .query('user', {
         filter: `[${JSON.stringify({
-          name: 'name',
+          name: 'id',
           op: 'eq',
-          val: name
-        })}]`
+          val: id
+        })}]`,
+        include: 'subscriptions.channel,posts'
       })
       .then(records => get(records, 'firstObject'))
   }

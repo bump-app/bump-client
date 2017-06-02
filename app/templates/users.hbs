@@ -1,4 +1,25 @@
 {{#with model as |user|}}
-  {{user.name}}
+<div class="signin">
+  Name: {{user.first_name}} {{user.last_name}}
+  <br>
+  Email: {{user.email}}
+    <div>
+        <br>
+        Channels:
+        <br>
+        {{#each user.subscriptions as |subscription|}}
+            <a href="#">{{subscription.channel.name}}</a>
+            <br>
+        {{/each}}
+    </div>
+
+    <div>
+        <br>
+        <br>
+        Posts:
+        <br>
+        {{posts-list posts=user.posts}}
+    </div>
+</div>
 {{/with}}
 {{outlet}}
