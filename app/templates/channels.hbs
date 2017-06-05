@@ -1,4 +1,15 @@
-{{#each model as |channel|}}
+<div class="signin">
+not subscribed:
+<br>
+{{#each unsubscribed as |channel|}}
   {{channels/channel-entry channel=channel}}
 {{/each}}
+<br>
+<br>
+subscribed:
+<br>
+{{#each subscriptions as |subscription|}}
+  {{subscription/subscription-view subscription=subscription}}
+{{/each}}
+</div>
 {{outlet}}

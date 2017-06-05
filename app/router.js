@@ -21,8 +21,8 @@ Router.map(function() {
   });
 
   this.route('users', { path: '/users/:id' });
-  this.route('discover');
-  this.route('create');
+  /*this.route('discover');*/
+  /*this.route('create');*/
   this.route('search');
   this.route('404', { path: '*' });
 });

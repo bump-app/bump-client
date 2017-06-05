@@ -15,6 +15,9 @@ export default Ember.Component.extend({
       const subscription = store.createRecord('subscription', { user, channel });
       subscription.save();
       get(this, 'router').transitionToRoute('dashboard.all', channel);
+    },
+    unsubscribe(channel) {
+        console.log("UNSUB");
     }
   }
 });
