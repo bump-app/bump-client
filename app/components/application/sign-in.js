@@ -13,6 +13,7 @@ const Validations = buildValidations({
 });
 
 export default Component.extend(Validations, {
+  classNames: ['signin'],
   router: service('-routing'),
 
   actions: {
