@@ -20,7 +20,7 @@
 
 {{#if authModalOpened}}
   {{to-elsewhere named="modal"
-    send=(component "ui/bs-modal" componentName="application/sign-in"
+    send=(component "ui/modal-dialog" componentName="application/sign-in"
           onClose=(toggle-action "authModalOpened" this))
   }}
 {{/if}}
