@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Controller from 'ember-controller';
 import service from 'ember-service/inject';
 import get from 'ember-metal/get';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   store: service(),
 
   actions: {

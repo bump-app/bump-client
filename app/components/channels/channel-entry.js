@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import Component from 'ember-component';
 import get from 'ember-metal/get';
 import service from 'ember-service/inject';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['channel-entry'],
   attributeBindings: ['channel'],
   store: service(),

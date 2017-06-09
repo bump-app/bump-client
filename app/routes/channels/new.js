@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Route from 'ember-route';
 import get from 'ember-metal/get';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
     return get(this,'store').createRecord('channel');
   }
