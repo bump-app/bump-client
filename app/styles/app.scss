@@ -10,12 +10,12 @@ $accent: #80E4E7;
 $navbar-height: 56px;
 
 html, body, body > [class='ember-view'] {
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
   background: $darker-gray;
-  font-family: 'Helvetica', sans-serif;
   color: $text;
+  font-family: 'Helvetica', sans-serif;
 }
 
 * {
