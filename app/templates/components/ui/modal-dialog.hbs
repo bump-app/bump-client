@@ -4,7 +4,7 @@
       {{#click-outside
         action=onClose
         except-selector=".modal-content"}}
-          {{component componentName}}
+          {{component componentName onClose=onClose}}
       {{/click-outside}}
     </div>
   </div>
