@@ -1,4 +1,4 @@
-import Controller from 'ember-controller';
+import Component from 'ember-component';
 import get, { getProperties } from 'ember-metal/get';
 // import set from 'ember-metal/set';
 import { buildValidations, validator } from 'ember-cp-validations';
@@ -12,7 +12,7 @@ const Validations = buildValidations({
   password: [ validator('presence', true) ]
 });
 
-export default Controller.extend(Validations, {
+export default Component.extend(Validations, {
   router: service('-routing'),
 
   actions: {

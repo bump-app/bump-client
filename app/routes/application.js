@@ -4,6 +4,7 @@ import get from 'ember-metal/get';
 
 export default Route.extend(ApplicationRouteMixin, {
   routeAfterAuthentication: 'dashboard.all',
+  authModalOpened: false,
 
   beforeModel() {
     const session = get(this, 'session');
