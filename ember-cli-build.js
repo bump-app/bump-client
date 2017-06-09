@@ -6,6 +6,11 @@ module.exports = function(defaults) {
     'ember-cli-babel': {
       includePolyfill: true
     },
+    'ember-cli-bootstrap-sassy': {
+      glyphicons: false,
+      js: [ 'modal', 'transition' ],
+      quiet: true
+    },
     sourcemaps: {
       enabled: true,
       extensions: ['js']

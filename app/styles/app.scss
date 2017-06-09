@@ -1,3 +1,5 @@
+@import 'bootstrap-custom';
+
 $bright: #E1E1E1;
 $text: #949494;
 $dim: #6A6A6A;
@@ -10,7 +12,7 @@ $accent: #80E4E7;
 $navbar-height: 56px;
 $sidebar-width: 222px;
 
-html, body, body > [class="ember-view"] {
+html, body, body > [class='ember-view'] {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -46,10 +48,6 @@ a {
   .signin-link {
     float: right;
   }
-}
-
-.signin {
-  padding: 30px;
 }
 
 .app-container {
@@ -184,4 +182,9 @@ a {
 .friends-list {
   width: $sidebar-width;
   background: $darkest-gray;
+}
+
+.modal {
+  display: block;
+  background: rgba(0, 0, 0, 0.5);
 }
