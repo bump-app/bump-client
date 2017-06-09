@@ -1,4 +1,25 @@
 .modal {
   display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow: hidden;
   background: rgba(0, 0, 0, 0.5);
+  .modal-dialog {
+    width: 600px;
+    margin: 100px auto;
+  }
+  .modal-content {
+    border-radius: 8px;
+    background: $dark-gray;
+  }
+  .modal-body {
+    padding: 16px;
+  }
+  .modal-footer {
+    padding: 16px;
+  }
 }
