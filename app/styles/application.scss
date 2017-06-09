@@ -22,3 +22,16 @@
   display: flex;
   height: calc(100% - #{$navbar-height});
 }
+
+.sign-in {
+  width: 500px;
+  input {
+    height: 36px;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    font-size: medium;
+    color: $text;
+    background: inherit;
+  }
+}
