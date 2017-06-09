@@ -1,17 +1,17 @@
 .navbar {
   width: 100%;
-  line-height: 1.5;
   height: $navbar-height;
   padding-left: 24px;
-  background: $darker-gray;
   border-bottom: 2px solid $black;
+  background: $darker-gray;
+  line-height: 1.5;
   .logo {
     position: absolute;
     margin-top: 3px;
     color: $accent;
     font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
     font-size: 48px;
+    font-weight: bold;
   }
   .signin-link {
     float: right;
@@ -26,12 +26,12 @@
 .sign-in {
   width: 500px;
   input {
+    width: 100%;
     height: 36px;
     padding: 8px;
-    width: 100%;
-    border: none;
-    font-size: medium;
-    color: $text;
+    border: 0;
     background: inherit;
+    color: $text;
+    font-size: medium;
   }
 }
