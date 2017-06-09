@@ -19,7 +19,7 @@ export default Controller.extend(Validations, {
     authenticate() {
       const { email, password } = getProperties(this, 'email', 'password');
       get(this, 'session').authenticateWithOAuth2(email, password)
-        .then(() => { get(this, 'router').transitionTo('dashboard.all') })
+        .then(() => { get(this, 'router').transitionTo('dashboard.all') });
         // .catch(() => { set(this, 'errorMessage', 'Wrong email or password') });
     }
   }
