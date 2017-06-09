@@ -14,7 +14,7 @@ export default Component.extend({
       const store = get(this, 'store');
       const subscription = store.createRecord('subscription', { user, channel });
       subscription.save();
-      get(this, 'router').transitionToRoute('dashboard.all', channel);
+      get(this, 'router').transitionTo('dashboard.all', channel);
     }
   }
 });

@@ -1,0 +1,24 @@
+.navbar {
+  width: 100%;
+  line-height: 1.5;
+  height: $navbar-height;
+  padding-left: 24px;
+  background: $darker-gray;
+  border-bottom: 2px solid $black;
+  .logo {
+    position: absolute;
+    margin-top: 3px;
+    color: $accent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+  }
+  .signin-link {
+    float: right;
+  }
+}
+
+.app-container {
+  display: flex;
+  height: calc(100% - #{$navbar-height});
+}
