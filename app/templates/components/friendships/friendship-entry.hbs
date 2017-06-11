@@ -1,0 +1,17 @@
+<div>
+    User: {{friendship.user.first_name}}
+    <br>
+    friend: {{friendship.friend.first_name}}
+    <br>
+    confirmed: {{if friendship.confirmed "True" "False"}}
+    <br>
+    {{#if friendship.confirmed}}
+        <button type="button" onclick={{action "decline" friendship}}>remove
+        friend</button>
+    {{else}}
+        <button type="button" onclick={{action "accept" friendship}}>accept</button>
+        <button type="button" onclick={{action "decline" friendship}}>decline</button>
+    {{/if}}
+    <br>
+</div>
+{{yield}}

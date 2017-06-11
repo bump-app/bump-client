@@ -1,0 +1,15 @@
+<div>
+    friend requests:
+    <br>
+    {{#each requests_received as |req|}}
+        {{friendships/friendship-entry friendship=req}}
+    {{/each}}
+        <br>
+        <br>
+    friend requests pending:
+    <br>
+    {{#each requests_sent as |req|}}
+        {{friendships/friendship-entry friendship=req}}
+    {{/each}}
+    {{outlet}}
+</div>

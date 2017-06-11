@@ -20,7 +20,9 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('users', { path: '/users/:id' });
+  this.route('users', { path: '/users/:id' }, function() {
+    this.route('friends');
+  });
   /*this.route('discover');*/
   /*this.route('create');*/
   this.route('search');

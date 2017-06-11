@@ -11,8 +11,8 @@ export default Route.extend({
           op: 'eq',
           val: id
         })}]`,
-        include: 'subscriptions.channel,posts'
+        include: 'subscriptions.channel,posts.user' 
       })
-      .then(records => get(records, 'firstObject'))
+      .then(records => get(records, 'firstObject'));
   }
 });

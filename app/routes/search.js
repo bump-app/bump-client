@@ -2,15 +2,17 @@ import Route from 'ember-route';
 import get from 'ember-metal/get';
 
 export default Route.extend({
-    /*model() {*/
-
-    /*return get(this, 'store')*/
-    /*.query('users' {*/
-    /*filter: `[${JSON.stringify({*/
-    /*name: 'id',*/
-    /*op: 'eq',*/
-    /*val: id*/
-    /*})}]`,*/
-    /*})*/
-    /*}*/
+    model() {
+        if(get(this, 'session.hasUser')) {
+            const user = get(this, 'session.account');
+            return get(this, 'store').query('user', {
+                filter: `[${JSON.stringify({
+                    name: 'id',
+                    op: 'ne',
+                    val: user.id
+                })}]`
+            });
+        }
+        else this.transitionTo('about');
+    }
 });

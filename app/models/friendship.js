@@ -4,5 +4,6 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
     user: belongsTo('user'),
-    friend: belongsTo('user')
+    friend: belongsTo('user'),
+    confirmed: attr('boolean')
 });

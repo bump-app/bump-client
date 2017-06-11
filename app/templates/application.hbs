@@ -8,6 +8,11 @@
     <a href="#" class="signin-link" {{action 'logout'}}>
       logout
     </a>
+    {{#if session.hasUser}}
+        <a href={{href-to "users" session.account.id}} class="signin-link">
+          account
+        </a>
+    {{/if}}
     <a href={{href-to "search"}} class="signin-link">
       search
     </a>
