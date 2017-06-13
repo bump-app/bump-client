@@ -9,10 +9,10 @@
     <br>
     {{#if showNameError}}
       <div class="error">
-        {{v-get model 'name' 'message'}}
+        {{v-get model "name" "message"}}
       </div>
     {{/if}}
-    <button type="submit" disabled={{v-get model 'isInvalid'}}>Create</button>
+    <button type="submit" disabled={{v-get model "isInvalid"}}>Create</button>
   </form>
 </div>
 {{#if errorMessage}}

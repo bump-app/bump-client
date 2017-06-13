@@ -1,10 +1,11 @@
 import Ember from 'ember';
 import Component from 'ember-component';
-import { alias, and, not, notEmpty, or, readOnly } from 'ember-computed';
+import { alias, and, notEmpty, readOnly } from 'ember-computed';
+import get from 'ember-metal/get';
+import set from 'ember-metal/set';
 
 export default Component.extend({
   classNames: ['validated-input'],
-  classNameBindings: ['showErrorClass:has-error', 'isValid:has-success'],
   model: null,
   value: null,
   type: 'text',
@@ -12,21 +13,15 @@ export default Component.extend({
   placeholder: '',
   validation: null,
   showValidations: false,
-  didValidate: false,
 
-  notValidating: not('validation.isValidating').readOnly(),
+  error: alias('validation.error.message').readOnly(),
+  warning: alias('validation.warningMessage').readOnly(),
   hasContent: notEmpty('value').readOnly(),
-  hasWarnings: notEmpty('validation.warnings').readOnly(),
   isValid: and('hasContent', 'validation.isTruelyValid').readOnly(),
-  shouldDisplayValidations: or('showValidations', 'didValidate', 'hasContent').readOnly(),
-
-  showErrorClass: and('notValidating', 'showErrorMessage', 'hasContent', 'validation').readOnly(),
-  showErrorMessage: and('shouldDisplayValidations', 'validation.isInvalid').readOnly(),
-  showWarningMessage: and('shouldDisplayValidations', 'hasWarnings', 'isValid').readOnly(),
 
   init() {
     this._super(...arguments);
-    let valuePath = this.get('valuePath');
+    let valuePath = get(this, 'valuePath');
 
     Ember.defineProperty(this, 'validation', readOnly(`model.validations.attrs.${valuePath}`));
     Ember.defineProperty(this, 'value', alias(`model.${valuePath}`));
@@ -34,6 +29,6 @@ export default Component.extend({
 
   focusOut() {
     this._super(...arguments);
-    this.set('showValidations', true);
+    set(this, 'showValidations', true);
   }
 });

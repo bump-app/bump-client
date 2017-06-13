@@ -2,24 +2,20 @@
   <div class="modal-body">
     {{ui/validated-input
       model=this
-      valuePath='email'
+      valuePath="email"
       placeholder="email"
       class="form-control"
     }}
 
     {{ui/validated-input
       model=this
-      valuePath='password'
+      valuePath="password"
       placeholder="password"
       class="form-control"
       type="password"
     }}
   </div>
   <div class="modal-footer">
-    <button type="submit" disabled={{v-get this 'isInvalid'}}>Sign In</button>
+    <button type="submit" disabled={{v-get this "isInvalid"}}>Sign In</button>
   </div>
 </form>
-
-{{#if errorMessage}}
-  {{errorMessage}}
-{{/if}}
