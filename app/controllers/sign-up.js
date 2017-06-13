@@ -12,6 +12,8 @@ export default Controller.extend({
             const { email, password } = getProperties(user, 'email', 'password');
             get(this, 'session').authenticateWithOAuth2(email, password).then(() => {
               this.transitionToRoute('dashboard.all');
+            }).catch((error) => {
+              get(this, 'notify').warning(error.error_description);
             });
           });
         }

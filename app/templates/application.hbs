@@ -22,3 +22,12 @@
 </div>
 
 {{from-elsewhere name="modal"}}
+
+{{#ember-notify closeAfter=5000 as |message|}}
+  <i class="material-icons">
+    {{#if (eq message.type "success")}}check_circle
+    {{else}}{{message.type}}
+    {{/if}}
+  </i>
+  {{message.text}}
+{{/ember-notify}}
