@@ -1,73 +1,87 @@
-<div class="signin">
-  <form {{action "register" on="submit"}}>
-    {{input
-      value=(mut model.first_name )
-      placeholder="First name"
-      class="form-control"
-      focus-out=(action (mut showFirstnameError) true)
-    }}
-    <br>
-    {{#if showFirstnameError}}
-      <div class="error">
-        {{v-get model 'first_name' 'message'}}
-      </div>
-    {{/if}}
-    {{input
-      value=model.last_name
-      placeholder="Last name"
-      class="form-control"
-      focus-out=(action (mut showLastnameError) true)
-    }}
-    <br>
-    {{#if showLastnameError}}
-      <div class="error">
-        {{v-get model 'last_name' 'message'}}
-      </div>
-    {{/if}}
-    {{input
-      value=model.email
-      placeholder="Email"
-      class="form-control"
-      focus-out=(action (mut showEmailError) true)
-    }}
-    <br>
-    {{#if showEmailError}}
-      <div class="error">
-        {{v-get model 'email' 'message'}}
-      </div>
-    {{/if}}
-    {{input
-      value=model.password
-      placeholder="Password"
-      class="form-control"
-      type="password"
-      focus-out=(action (mut showPasswordError) true)
-    }}
-    <br>
-    {{#if showPasswordError}}
-      <div class="error">
-        {{v-get model 'password' 'message'}}
-      </div>
-    {{/if}}
-    {{input
-      value=model.confirm_password
-      placeholder="Confirm password"
-      class="form-control"
-      type="password"
-      focus-out=(action (mut showConfirmpasswordError) true)
-    }}
-    <br>
-    {{#if showConfirmpasswordError}}
-      {{#if (v-get model 'confirm_password' 'isInvalid')}}
-        <div class="error">
-          {{v-get model 'confirm_password' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-    <button type="submit" disabled={{v-get model 'isInvalid'}}>Register</button>
-  </form>
-</div>
+<form class="sign-up-form" {{action "register" on="submit"}}>
+{{!--   {{ui/info-input
+    value=model.first_name
+    placeholder="first name"
 
-{{#if errorMessage}}
-  {{errorMessage}}
-{{/if}}
+    error=(v-get model "first_name" "error.message")
+    warning=(v-get model "first_name" "warningMessage")
+    success=(v-get model "first_name" "isValid")
+  }}
+
+  {{ui/info-input
+    value=model.last_name
+    placeholder="last name"
+
+    error=(v-get model "last_name" "error.message")
+    warning=(v-get model "last_name" "warningMessage")
+    success=(v-get model "last_name" "isValid")
+  }}
+
+  {{ui/info-input
+    value=model.email
+    placeholder="email"
+
+    error=(v-get model "email" "error.message")
+    warning=(v-get model "email" "warningMessage")
+    success=(v-get model "email" "isValid")
+  }}
+
+  {{ui/info-input
+    value=model.password
+    placeholder="password"
+    type="password"
+
+    error=(v-get model "password" "error.message")
+    warning=(v-get model "password" "warningMessage")
+    success=(v-get model "password" "isValid")
+  }}
+
+  {{ui/info-input
+    value=model.confirm_password
+    placeholder="confirm password"
+    type="password"
+
+    error=(v-get model "confirm_password" "error.message")
+    warning=(v-get model "confirm_password" "warningMessage")
+    success=(v-get model "confirm_password" "isValid")
+  }} --}}
+
+  {{ui/validated-input
+    value=model.first_name
+    placeholder="first name"
+    model=model
+    valuePath="first_name"
+  }}
+
+  {{ui/validated-input
+    value=model.last_name
+    placeholder="last name"
+    model=model
+    valuePath="last_name"
+  }}
+
+  {{ui/validated-input
+    value=model.email
+    placeholder="email"
+    model=model
+    valuePath="email"
+  }}
+
+  {{ui/validated-input
+    value=model.password
+    placeholder="password"
+    type="password"
+    model=model
+    valuePath="password"
+  }}
+
+  {{ui/validated-input
+    value=model.confirm_password
+    placeholder="confirm password"
+    type="password"
+    model=model
+    valuePath="confirm_password"
+  }}
+
+  <button type="submit" disabled={{v-get model "isInvalid"}}>Sign Up</button>
+</form>

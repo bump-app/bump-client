@@ -6,8 +6,11 @@ $darker-gray: #36393E;
 $darkest-gray: #2E3136;
 $black: #262626;
 $accent: #80E4E7;
+$error: #C68DF0;
+$warning: #FDCC36;
 
 $navbar-height: 56px;
+$tooltip-width: 200px;
 
 html, body, body > [class='ember-view'] {
   height: 100%;
@@ -27,8 +30,42 @@ a {
   text-decoration: none;
 }
 
+.tooltip-container {
+  position: relative;
+  &:hover {
+    .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    width: $tooltip-width;
+    margin-left: calc(-#{$tooltip-width} / 2);
+    padding: 5px;
+    transition: opacity .3s;
+    border-radius: 3px;
+    background: $darker-gray;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1055;
+  }
+}
+
+.error {
+  color: $error;
+}
+
+.warning {
+  color: $warning;
+}
+
 @import 'application';
 @import 'channels';
 @import 'dashboard';
 @import 'posts';
+@import 'sign-up';
 @import 'ui';
