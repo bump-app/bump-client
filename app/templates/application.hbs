@@ -1,21 +1,13 @@
 <nav class="navbar">
-  {{#link-to "dashboard"}}
-    <div class="logo">
-      bump
-    </div>
-  {{/link-to}}
-  {{#if session.isAuthenticated}}
-    <a href="#" class="signin-link" {{action "logout"}}>
-      logout
-    </a>
-  {{else}}
-    <a href={{href-to "sign-up"}} class="signin-link">
-      sign up
-    </a>
-    <a href="#" class="signin-link" {{action (mut authModalOpened) true}}>
-      sign in
-    </a>
-  {{/if}}
+  <a href={{href-to "dashboard.all"}} class="logo">bump</a>
+  <div class="navbar-right">
+    {{#if session.isAuthenticated}}
+      <a href="#" {{action "logout"}}>logout</a>
+    {{else}}
+      <a href={{href-to "sign-up"}} class="signin-link">sign up</a>
+      <a href="#" class="signin-link" {{action (mut authModalOpened) true}}>sign in</a>
+    {{/if}}
+  </div>
 </nav>
 
 {{#if authModalOpened}}
