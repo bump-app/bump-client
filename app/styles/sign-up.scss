@@ -1,6 +1,6 @@
 .sign-up-form {
   width: 500px;
-  height: auto;
+  height: max-content;
   margin: 100px auto;
   padding: 16px;
   border-radius: 8px;
@@ -13,5 +13,21 @@
     background: inherit;
     color: $text;
     font-size: medium;
+  }
+  button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    float: right;
+    border: 0;
+    border-radius: 4px;
+    background: $accent;
+    color: $darker-gray;
+    font-size: medium;
+    cursor: pointer;
+    &:disabled {
+      background: $text;
+      color: $dim;
+      cursor: default;
+    }
   }
 }
