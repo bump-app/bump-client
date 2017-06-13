@@ -22,7 +22,7 @@ export default Component.extend(Validations, {
       get(this, 'session').authenticateWithOAuth2(email, password)
         .then(() => {
           invokeAction(this, 'onClose');
-          get(this, 'router').transitionTo('dashboard.all')
+          get(this, 'router').transitionTo('dashboard.all');
         });
         // .catch(() => { set(this, 'errorMessage', 'Wrong email or password') });
     }
