@@ -9,7 +9,7 @@ export default Component.extend({
         befriend(friend) {
             const user = get(this, 'session.account');
             const store = get(this, 'store');
-            const friendship = store.createRecord('friendship', { user, friend });
+            const friendship = store.createRecord('friendship', { user, friend, false });
             friendship.save();
 
             /*get(this, 'router').transitionToRoute('dashboard.all',

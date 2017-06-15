@@ -39,5 +39,9 @@ export default Model.extend(Validations, {
   email: attr('string'),
   password: attr('string'),
   posts: hasMany('post'),
-  subscriptions: hasMany('subscription')
+  subscriptions: hasMany('subscription'),
+  friendships_sent: hasMany('friendship', {
+      inverse: 'user'}),
+  friendships_recieved: hasMany('friendship', {
+      inverse: 'friend'})
 });

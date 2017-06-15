@@ -11,5 +11,10 @@
     {{#each requests_sent as |req|}}
         {{friendships/friendship-entry friendship=req}}
     {{/each}}
+    <br>
+    friends:
+    {{#each friends as |req|}}
+        {{friendships/friendship-entry friendship=req}}
+    {{/each}}
     {{outlet}}
 </div>
