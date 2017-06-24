@@ -1,19 +1,16 @@
-import BaseValidator from 'ember-cp-validations/validators/base';
 import service from 'ember-service/inject';
+import get from 'ember-metal/get';
+import BaseValidator from 'ember-cp-validations/validators/base';
 
 const ChannelAvailable = BaseValidator.extend({
   store: service(),
 
-  validate(value) {
+  validate(slug) {
     return this.get('store').query('channel', {
-      filter: `[${JSON.stringify({
-        name: 'name',
-        op: 'eq',
-        val: value
-      })}]`
+      filter: { slug }
     })
     .then((result) => {
-      if (result.get('length') === 0) {
+      if (get(result, 'length') === 0) {
         return true;
       } else {
         return 'This channel already exists';

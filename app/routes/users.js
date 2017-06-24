@@ -6,11 +6,7 @@ export default Route.extend({
     const { name } = params;
     return get(this, 'store')
       .query('user', {
-        filter: `[${JSON.stringify({
-          name: 'name',
-          op: 'eq',
-          val: name
-        })}]`
+        filter: { name }
       })
       .then(records => get(records, 'firstObject'))
   }

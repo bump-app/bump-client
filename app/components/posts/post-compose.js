@@ -1,8 +1,9 @@
 import Component from 'ember-component';
 import get, { getProperties } from 'ember-metal/get';
-import set, { setProperties } from 'ember-metal/set';
+import set from 'ember-metal/set';
 import computed from 'ember-computed';
 import service from 'ember-service/inject';
+import { invokeAction } from 'ember-invoke-action';
 import { next } from 'ember-runloop';
 import { isEmpty } from 'ember-utils';
 import $ from 'jquery';
@@ -38,13 +39,11 @@ export default Component.extend({
 
     create() {
       const store = get(this, 'store');
-      const { link, text } = getProperties(this, 'link', 'text');
-      const post = store.createRecord('post', { link, text });
+      const { link, text, channel } = getProperties(this, 'link', 'text', 'channel');
       const user = get(this, 'session.account');
-      const channel = get(this, 'channel');
-      setProperties(post, { user, channel });
-      post.save().then(() => {
-        get(this, 'model.content').insertAt(0, post._internalModel);
+      const post = store.createRecord('post', { link, text, user, channel });
+      post.save().then((createdPost) => {
+        invokeAction(this, 'insertPost', createdPost);
         this.reset();
       });
     }
