@@ -42,7 +42,7 @@
     "ember-data": "^2.12.0",
     "ember-elsewhere": "^1.0.1",
     "ember-export-application-global": "^1.0.5",
-    "ember-href-to": "^1.12.0",
+    "ember-href-to": "^1.13.0",
     "ember-invoke-action": "^1.4.0",
     "ember-load-initializers": "^0.6.0",
     "ember-material-design-icons-shim": "^0.1.11",

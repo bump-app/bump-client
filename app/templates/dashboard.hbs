@@ -9,7 +9,7 @@
   {{#each model as |subscription|}}
     {{channels/channel-name
       channel=subscription.channel
-      active=(eq channelName subscription.channel.name)}}
+      active=(eq channelName subscription.channel.slug)}}
   {{/each}}
 </div>
 {{outlet}}

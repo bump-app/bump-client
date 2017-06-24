@@ -1,18 +1,15 @@
-import BaseValidator from 'ember-cp-validations/validators/base';
 import service from 'ember-service/inject';
+import get from 'ember-metal/get';
+import BaseValidator from 'ember-cp-validations/validators/base';
 
 const EmailAvailable = BaseValidator.extend({
   store: service(),
 
-  validate(value) {
+  validate(email) {
     return this.get('store').query('user', {
-      filter: `[${JSON.stringify({
-        name: 'email',
-        op: 'eq',
-        val: value
-      })}]`
+      filter: { email }
     }).then((result) => {
-      if (result.get('length') === 0) {
+      if (get(result, 'length') === 0) {
         return true;
       } else {
         return 'The email is already in use';

@@ -7,11 +7,7 @@ export default Route.extend({
     const dashboardController = this.controllerFor('dashboard');
     set(dashboardController, 'channelName', name);
     return get(this, 'store').query('channel', {
-      filter: `[${JSON.stringify({
-        name: 'name',
-        op: 'eq',
-        val: name
-      })}]`
+      filter: { slug: name }
     }).then(records => get(records, 'firstObject'));
   },
 });

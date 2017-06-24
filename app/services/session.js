@@ -14,7 +14,7 @@ export default Session.extend({
 
   authenticateWithOAuth2(identification, password) {
     // FIXME scope for the request is hardcoded in
-    return this.authenticate('authenticator:oauth2', identification, password, 'email');
+    return this.authenticate('authenticator:oauth2', identification, password, 'public');
   },
 
   isCurrentUser(user) {
@@ -26,11 +26,21 @@ export default Session.extend({
   },
 
   getCurrentUser() {
-    return get(this, 'ajax').request('/me').then((response) => {
-      const normalizedData = get(this, 'store').normalize('user', response.data);
+    const requestUrl = '/users?filter[self]=true&include=userRoles.role';
+    return get(this, 'ajax').request(requestUrl).then((response) => {
+      const [data] = response.data;
+      const normalizedData = get(this, 'store').normalize('user', data);
       const user = get(this, 'store').push(normalizedData);
+      const included = response.included || [];
+      included.forEach((record) => {
+        let type = get(record, 'type');
+        type = type === 'userRoles' ? 'user-role' : 'role';
+        get(this, 'store').push(get(this, 'store').normalize(type, record));
+      });
       set(this, 'account', user);
-      return user
-    }).catch(() => { this.invalidate() });
+      return user;
+    }).catch(() => {
+      this.invalidate();
+    });
   }
 });

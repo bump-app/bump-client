@@ -13,10 +13,12 @@ const Validations = buildValidations({
     /*description: [*/
     /*validator('presence', true)*/
     /*]*/
-  });
+});
 
-  export default Model.extend(Validations, {
-    name: attr('string'),
-    description: attr('string'),
-    posts: hasMany('post'),
-  });
+export default Model.extend(Validations, {
+  name: attr('string'),
+  slug: attr('string'),
+  description: attr('string'),
+  posts: hasMany('post'),
+  subscribers: hasMany('subscription')
+});

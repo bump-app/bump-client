@@ -1,6 +1,7 @@
 import Component from 'ember-component';
 import service from 'ember-service/inject';
 import get from 'ember-metal/get';
+import set from 'ember-metal/set';
 import { task } from 'ember-concurrency';
 
 export default Component.extend({
@@ -9,23 +10,21 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    const channelId = get(this, 'channel.id');
-    get(this, 'getPosts').perform(channelId);
+    get(this, 'getPosts').perform();
   },
 
-  getPosts: task(function* (channelId) {
-    return yield get(this, 'store').query('post', {
-      filter: `[${JSON.stringify({
-        name: 'channel',
-        op: 'has',
-        val: {
-          name: 'id',
-          op: 'eq',
-          val: channelId
-        }
-      })}]`,
+  actions: {
+    insertPost(post) {
+      get(this, 'feed').insertAt(0, post._internalModel);
+    }
+  },
+
+  getPosts: task(function* () {
+    const posts = yield get(this, 'store').query('post', {
+      filter: { channelId: get(this, 'channel.id') },
       include: 'user',
-      sort: '-created_at'
+      sort: '-createdAt'
     });
+    set(this, 'feed', posts);
   })
 });

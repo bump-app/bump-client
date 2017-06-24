@@ -1,3 +1,4 @@
-{{#each getPosts.last.value as |post|}}
+{{posts/post-compose channel=channel insertPost=(action "insertPost")}}
+{{#each feed as |post|}}
   {{posts/post-view post=post}}
 {{/each}}
