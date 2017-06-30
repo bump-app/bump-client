@@ -11,6 +11,7 @@ COPY ./package.json /opt/bump/client/
 # COPY ./yarn.lock /opt/bump/client/
 WORKDIR /opt/bump/client
 RUN npm install
+RUN npm install
 
 # *NOW* we copy the codebase in
 COPY . /opt/bump/client
