@@ -14,7 +14,18 @@ export default Component.extend({
       const store = get(this, 'store');
       const subscription = store.createRecord('subscription', { user, channel });
       subscription.save();
+      channel.set('sub', true);
       get(this, 'router').transitionTo('dashboard.all', channel);
+    },
+
+    unsubscribe(channel) {
+      get(this, 'store').query('subscription', {
+        filter: { userId: get(this, 'session.account.id'),
+                  channelId: get(channel, 'id') }
+      }).then((subscriptions) => {
+        subscriptions.forEach((subscription) => subscription.destroyRecord())
+        channel.set('sub', false);
+      });
     }
   }
 });

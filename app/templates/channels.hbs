@@ -1,4 +1,13 @@
+<a href="#" {{action (mut authModalOpened) true}}>create new channel</a>
 {{#each model as |channel|}}
   {{channels/channel-entry channel=channel}}
 {{/each}}
+
+{{#if authModalOpened}}
+  {{to-elsewhere named="modal"
+    send=(component "ui/modal-dialog" componentName="channels/new-channel"
+          onClose=(toggle-action "authModalOpened" this))
+  }}
+{{/if}}
+
 {{outlet}}

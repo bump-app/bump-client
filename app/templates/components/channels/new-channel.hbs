@@ -1,0 +1,13 @@
+<form {{action "create" on="submit"}}>
+  <div class="modal-body">
+    {{ui/validated-input
+      model=this
+      placeholder="channel name"
+      valuePath="name"
+      class="form-control"
+    }}
+  </div>
+  <div class="modal-footer">
+    <button type="submit" disabled={{v-get this "isInvalid"}}>Create</button>
+  </div>
+</form>

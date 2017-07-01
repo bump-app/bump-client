@@ -1,0 +1,34 @@
+.new-channel {
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      width: 100%;
+      height: 36px;
+      margin-right: 5px;
+      padding: 8px;
+      border: 0;
+      background: inherit;
+      color: $text;
+      font-size: medium;
+    }
+  }
+  .modal-footer {
+    button {
+      padding: 8px 12px;
+      float: right;
+      border: 0;
+      border-radius: 4px;
+      background: $accent;
+      color: $darker-gray;
+      font-size: medium;
+      cursor: pointer;
+      &:disabled {
+        background: $text;
+        color: $dim;
+        cursor: default;
+      }
+    }
+  }
+}

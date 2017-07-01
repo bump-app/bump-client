@@ -3,6 +3,7 @@
   <div class="navbar-right">
     {{#if session.isAuthenticated}}
       <a href="#" {{action "logout"}}>logout</a>
+      <a href={{href-to "channels"}}>discover</a>
     {{else}}
       <a href={{href-to "sign-up"}} class="signin-link">sign up</a>
       <a href="#" class="signin-link" {{action (mut authModalOpened) true}}>sign in</a>

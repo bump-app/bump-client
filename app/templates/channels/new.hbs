@@ -1,5 +1,5 @@
-<div class="signin">
-  <form {{action "create" on="submit"}}>
+<form {{action "create" on="submit"}}>
+  <div class="modal-body">
     {{input
       value=model.name
       placeholder="Channel name"
@@ -12,9 +12,11 @@
         {{v-get model "name" "message"}}
       </div>
     {{/if}}
+  </div>
+  <div class="modal-footer">
     <button type="submit" disabled={{v-get model "isInvalid"}}>Create</button>
-  </form>
-</div>
+  </div>
+</form>
 {{#if errorMessage}}
   {{errorMessage}}
 {{/if}}
