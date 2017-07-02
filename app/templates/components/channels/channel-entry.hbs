@@ -1,7 +1,7 @@
 <div class="channel-name">{{channel.name}}</div>
 <div>
   <br>
-  {{#if channel.sub}}
+  {{#if subscriptions}}
     <button type="button" onclick={{action "unsubscribe" channel}}>unsubscribe</button>
   {{else}}
     <button type="button" onclick={{action "subscribe" channel}}>subscribe</button>
