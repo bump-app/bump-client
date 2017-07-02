@@ -2,9 +2,9 @@
 <div>
   <br>
   {{#if subscriptions}}
-    <button type="button" onclick={{action "unsubscribe" channel}}>unsubscribe</button>
+    <button type="button" onclick={{perform unsubscribe channel}}>unsubscribe</button>
   {{else}}
-    <button type="button" onclick={{action "subscribe" channel}}>subscribe</button>
+    <button type="button" onclick={{perform subscribe channel}}>subscribe</button>
   {{/if}}
   <br>
 </div>
