@@ -1,3 +1,13 @@
+{{#if owner}}
+<div class="post-header">
+  <a href="#" onclick={{action "delete_post" post}}>
+    delete
+  </a>
+  <a href="#" onclick={{action (mut editing) true}}>
+    edit
+  </a>
+</div>
+{{/if}}
 <div class="post-subject">
   {{#if post.linkFormatted}}
     {{html-safe post.linkFormatted}}
@@ -14,7 +24,11 @@
     {{moment-from-now post.createdAt interval=60000 class="timestamp"}}
   </div>
 </div>
-{{#if post.text}}
-  <div class="post-text">{{post.text}}</div>
+{{#if (not editing)}}
+  {{#if post.text}}
+    <div class="post-text">{{post.text}}</div>
+  {{/if}}
+  {{comments/comments-list post=post}}
+{{else}}
+  {{posts/post-edit post=post editing=editing}}
 {{/if}}
-{{comments/comments-list post=post}}
