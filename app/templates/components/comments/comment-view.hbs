@@ -1,3 +1,13 @@
+{{#if owner}}
+<div class="comment-header">
+  <a href="#" onclick={{action "delete_comment" comment}}>
+    delete
+  </a>
+  <a href="#" onclick={{action (mut editing) true}}>
+    edit
+  </a>
+</div>
+{{/if}}
 <div class="comment-user">
   <img class="comment-user-avatar" src="https://media.kitsu.io/users/avatars/78332/small.jpg" />
   <div class="comment-user-info">
@@ -7,6 +17,10 @@
     {{moment-from-now comment.createdAt interval=60000 class="timestamp"}}
   </div>
 </div>
-{{#if comment.text}}
-  <div class="comment-text">{{comment.text}}</div>
+{{#if (not editing)}}
+  {{#if comment.text}}
+    <div class="comment-text">{{comment.text}}</div>
+  {{/if}}
+{{else}}
+  {{comments/comment-edit comment=comment editing=editing}}
 {{/if}}

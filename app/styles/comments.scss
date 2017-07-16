@@ -1,4 +1,4 @@
-.comment-compose {
+.comment-compose, .comment-edit {
   width: 100%;
   max-width: 512px;
   margin: 16px auto;
@@ -65,6 +65,9 @@
   padding: 16px;
   border-radius: 8px;
   background: $darker-gray;
+  .comment-header {
+    text-align: right;
+    }
   .comment-subject {
     iframe {
       width: 100%;
