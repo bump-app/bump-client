@@ -1,0 +1,32 @@
+<div>
+  <br>
+  Users:
+  <br>
+  {{#each model.users as |user|}}
+    {{users/user-entry user=user}}
+  {{/each}}
+
+  <br>
+  pending friends:
+  {{#each model.pending_friends as |friendship|}}
+    {{friendships/friendship-entry friendship=friendship}}
+  {{/each}}
+
+  <br>
+  sent:
+  {{#each model.sent as |friendship|}}
+    {{friendships/friendship-entry friendship=friendship}}
+  {{/each}}
+
+  <br>
+  received:
+  {{#each model.received as |friendship|}}
+    {{friendships/friendship-entry friendship=friendship}}
+  {{/each}}
+
+  <br>
+  friends:
+  {{#each model.friends as |friendship|}}
+    {{friendships/friendship-entry friendship=friendship}}
+  {{/each}}
+</div>

@@ -39,5 +39,16 @@ export default Model.extend(Validations, {
   email: attr('string'),
   password: attr('string'),
   posts: hasMany('post'),
-  subscriptions: hasMany('subscription')
+  subscriptions: hasMany('subscription'),
+  friendships: hasMany('friendship'),
+  friends: hasMany('user', {
+    inverse: null}),
+  confirmed_friends: hasMany('user', {
+    inverse: null}),
+  // not in use but don't know how to remove without breaking ember
+  sent_friendships: hasMany('friendship', {
+    inverse: 'user'}),
+  // not in use but don't know how to remove without breaking ember
+  received_friendships: hasMany('friendship', {
+    inverse: 'friend'})
 });

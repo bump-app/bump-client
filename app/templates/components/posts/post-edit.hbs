@@ -1,0 +1,17 @@
+{{#click-outside
+  action=(action "cancel" post)
+  except-selector=".post-view"}}
+  {{textarea
+    class="post-edit-text"
+    placeholder="caption..."
+    value=post.text
+    autoresize=true
+    rows=2
+    max-rows=15}}
+  <button type="button" disabled={{not editing}} onclick={{action "cancel" post}}>
+    cancel
+  </button>
+  <button type="button" disabled={{not editing}} onclick={{action "save" post}}>
+    save
+  </button>
+{{/click-outside}}

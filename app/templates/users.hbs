@@ -1,4 +1,14 @@
 {{#with model as |user|}}
-  {{user.name}}
+  <div>
+    Name: {{user.first_name}} {{user.last_name}}
+    <br>
+    Email: {{user.email}}
+    <br>
+    <br>
+    Friends:
+    {{#each user.confirmed_friends as |friend|}}
+      Name: {{friend.first_name}}
+      <br>
+    {{/each}}
+  </div>
 {{/with}}
-{{outlet}}

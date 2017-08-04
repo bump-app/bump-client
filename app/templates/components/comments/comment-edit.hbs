@@ -1,0 +1,17 @@
+{{#click-outside
+  action=(action "cancel" comment)
+  except-selector=".comment-view"}}
+  {{textarea
+    class="comment-edit-text"
+    placeholder="caption..."
+    value=comment.text
+    autoresize=true
+    rows=2
+    max-rows=15}}
+  <button type="button" disabled={{not editing}} onclick={{action "cancel" comment}}>
+    cancel
+  </button>
+  <button type="button" disabled={{not editing}} onclick={{action "save" comment}}>
+    save
+  </button>
+{{/click-outside}}

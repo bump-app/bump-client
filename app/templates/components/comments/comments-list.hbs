@@ -1,0 +1,15 @@
+{{#if comments}}
+  {{#if (not expanded)}}
+    <div class="comment-list-header" onclick={{action "expand"}}>
+      expand comments
+    </div>
+  {{else}}
+    <div class="comment-list-header" onclick={{action "collapse"}}>
+      collapse comments
+    </div>
+    {{#each comments as |comment|}}
+      {{comments/comment-view comment=comment}}
+    {{/each}}
+  {{/if}}
+{{/if}}
+{{comments/comment-compose post=post insertComment=(action "insertComment")}}

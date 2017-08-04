@@ -1,16 +1,16 @@
-.post-compose, .post-edit {
+.comment-compose, .comment-edit {
   width: 100%;
   max-width: 512px;
   margin: 16px auto;
   padding: 16px;
   border-radius: 8px;
-  background: $dark-gray;
+  background: $darker-gray;
   overflow: auto;
-  .post-compose-header {
+  .comment-compose-header {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 32px;
+    height: 16px;
     cursor: text;
   }
   input {
@@ -51,41 +51,49 @@
   }
 }
 
-.post-view {
+.comment-list {
+  .comment-list-header {
+    background: $darkest-gray;
+    border-radius: 8px;
+    margin: 16px auto;
+    padding: 16px;
+  }
+}
+.comment-view {
   max-width: 512px;
   margin: 16px auto;
   padding: 16px;
   border-radius: 8px;
-  background: $dark-gray;
-  .post-header {
+  background: $darker-gray;
+  .comment-header {
     text-align: right;
     }
-  .post-subject {
+  .comment-subject {
     iframe {
       width: 100%;
     }
   }
-  .post-user {
+  .comment-user {
     display: flex;
     align-items: center;
-    margin-top: 16px;
-    .post-user-avatar {
-      width: 48px;
+    margin-top: 4px;
+    .comment-user-avatar {
+      width: 38px;
       margin-right: 16px;
       border-radius: 999em;
     }
-    .post-user-info {
-      .post-user-name {
+    .comment-user-info {
+      .comment-user-name {
         margin-bottom: 4px;
         color: $bright;
-        font-size: 18px;
+        font-size: 16px;
       }
       .timestamp {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
   }
-  .post-text {
-    margin-top: 16px;
+  .comment-text {
+    margin-top: 8px;
   }
 }

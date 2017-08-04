@@ -2,8 +2,12 @@
   <a href={{href-to "dashboard.all"}} class="logo">bump</a>
   <div class="navbar-right">
     {{#if session.isAuthenticated}}
+      {{#if session.account.id}}
+        <a href={{href-to "users" session.account.id}}>profile</a>
+      {{/if}}
       <a href="#" {{action "logout"}}>logout</a>
       <a href={{href-to "channels"}}>discover</a>
+      <a href={{href-to "search"}}>find friends</a>
     {{else}}
       <a href={{href-to "sign-up"}} class="signin-link">sign up</a>
       <a href="#" class="signin-link" {{action (mut authModalOpened) true}}>sign in</a>

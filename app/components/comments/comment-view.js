@@ -3,17 +3,17 @@ import get from 'ember-metal/get';
 import computed from 'ember-computed';
 
 export default Component.extend({
-  classNames: ['post-view'],
+  classNames: ['comment-view'],
   editing: false,
 
-  owner: computed('session', 'post', function() {
-    return get(this, 'session.account.id') == get(this, 'post.user.id');
+  owner: computed('session', 'comment', function() {
+    return get(this, 'session.account.id') == get(this, 'comment.user.id');
   }).readOnly(),
   
   actions: {
-    delete_post(post) {
+    delete_comment(comment) {
       // add confirmation popup?
-      post.destroyRecord();
+      comment.destroyRecord();
     }
   }
 

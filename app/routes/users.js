@@ -3,11 +3,11 @@ import get from 'ember-metal/get';
 
 export default Route.extend({
   model(params) {
-    const { name } = params;
+    const { id } = params;
     return get(this, 'store')
       .query('user', {
-        filter: { name }
+        filter: { id }
       })
-      .then(records => get(records, 'firstObject'))
+      .then(records => get(records, 'firstObject'));
   }
 });

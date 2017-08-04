@@ -1,0 +1,20 @@
+{{#if (not expanded)}}
+  <div class="comment-compose-header" onclick={{action "expand"}}>
+    comment...
+  </div>
+{{else}}
+  {{#click-outside
+    action=(action "collapse")
+    except-selector=".comment-compose"}}
+    {{textarea
+      class="comment-compose-text"
+      placeholder="comment..."
+      value=text
+      autoresize=true
+      rows=2
+      max-rows=15}}
+    <button type="button" disabled={{not editing}} onclick={{action
+    "create"}}>comment</button>
+  {{/click-outside}}
+{{/if}}
+{{yield}}
