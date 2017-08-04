@@ -1,6 +1,5 @@
 import Component from 'ember-component';
 import service from 'ember-service/inject';
-import set from 'ember-metal/set';
 
 export default Component.extend({
   classNames: ['friendship-entry'],
