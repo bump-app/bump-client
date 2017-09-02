@@ -1,5 +1,5 @@
-{{#with model as |user|}}
-  <div>
+<div>
+  {{#with model.user as |user|}}
     Name: {{user.first_name}} {{user.last_name}}
     <br>
     Email: {{user.email}}
@@ -10,5 +10,33 @@
       Name: {{friend.first_name}}
       <br>
     {{/each}}
-  </div>
-{{/with}}
+    <br>
+    <br>
+    sent_Friends:
+    {{#each user.sent_friends as |friend|}}
+      Name: {{friend.first_name}}
+      <br>
+    {{/each}}
+    <br>
+    <br>
+    inverse Friends:
+    {{#each user.inverse_friends as |friend|}}
+      Name: {{friend.first_name}}
+      <br>
+    {{/each}}
+    <br>
+    <br>
+    friend Friends:
+    {{#each user.friends as |friend|}}
+      Name: {{friend.first_name}}
+      <br>
+    {{/each}}
+  {{/with}}
+  <br>
+  <br>
+  all Friends:
+  {{#each model.all_friends as |friend|}}
+    Name: {{friend.first_name}}
+    <br>
+  {{/each}}
+</div>

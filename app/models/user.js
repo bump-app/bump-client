@@ -45,6 +45,13 @@ export default Model.extend(Validations, {
     inverse: null}),
   confirmed_friends: hasMany('user', {
     inverse: null}),
+  inverse_friends: hasMany('user', {
+    inverse: null}),
+
+  all_friends: hasMany('user', {
+    inverse: null}),
+  /*all_friends: attr('string'),*/
+
   // not in use but don't know how to remove without breaking ember
   sent_friendships: hasMany('friendship', {
     inverse: 'user'}),
