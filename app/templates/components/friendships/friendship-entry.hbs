@@ -2,7 +2,9 @@ user: {{friendship.user.first_name}}
 <br>
 friend: {{friendship.friend.first_name}}
 <br>
-confirmed: {{friendship.confirmed}}
+confirmed: {{friendship.friendship_setting.confirmed}}
+<br>
+confirmed_id: {{friendship.friendship_setting.id}}
 <br>
 {{#if friendship.confirmed}}
   <button type="button" onclick={{action "remove" friendship}}>

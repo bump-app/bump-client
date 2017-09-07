@@ -12,8 +12,8 @@ export default Component.extend({
       const store = get(this, 'store');
       const friendship = store.createRecord('friendship', {
         user: user,
-        friend: friend,
-        confirmed: false
+        friend: friend//,
+        /*confirmed: false*/
       });
       friendship.save();
     }
