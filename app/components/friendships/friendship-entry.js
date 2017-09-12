@@ -11,7 +11,7 @@ export default Component.extend({
       setting.set('confirmed', true);
       setting.get('content').save();
       /*friendship.set('friendship_setting.confirmed', true);*/
-      /*friendship.save();*/
+      setting.save();
     },
 
     // TODO: save decline status instead of deleting record
