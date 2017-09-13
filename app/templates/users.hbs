@@ -10,5 +10,11 @@
       Name: {{friend.first_name}}
       <br>
     {{/each}}
+    <br>
+    <br>
+    Friendships:
+    {{#each user.friendships as |friendship|}}
+        {{friendships/friendship-entry friendship=friendship}}
+    {{/each}}
   </div>
 {{/with}}
