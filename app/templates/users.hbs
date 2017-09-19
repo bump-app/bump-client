@@ -6,6 +6,13 @@
     <br>
     <br>
     Friends:
+    {{#each user.friends as |friend|}}
+      Name: {{friend.first_name}}
+      <br>
+    {{/each}}
+    <br>
+    <br>
+    Confirmed Friends:
     {{#each user.confirmed_friends as |friend|}}
       Name: {{friend.first_name}}
       <br>
